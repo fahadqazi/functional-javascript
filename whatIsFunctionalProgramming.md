@@ -48,6 +48,11 @@ document.getElementById('main_button').onclick = getText;
 * hiding and sharing props
 * composition, inheritance ..
 * code encapsulation
+
+possible issues:
+  - reliance on `this`
+  - using extra variables for counters
+  - loop modifying variables outside itself
 ```javascript
 (function(){
   "user strict";
