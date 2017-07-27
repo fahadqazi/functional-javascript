@@ -1,26 +1,27 @@
-// var result;
+(function(){
+  "user strict";
+  var SomeText = function(text){
+    this.text = text;
+  };
 
-function getText() {
-  var someText = prompt('Give me a string to capitalize');
-  var result = capWords(someText);
-  console.log(result);
-  alert(result.join(' '));
-}
+  SomeText.prototype.capify = function(str){
+    var firstLetter = str.charAt(0);
+    var remainder = str.substr(1);
+    return [firstLetter.toUpperCase(), remainder].join('');
+  };
 
-function capWords(input) {
-  var inputArray = input.split(' ');
-  var counter;
-  var transform = '';
-  var outputArray = []
-  for (counter = 0; counter < inputArray.length; counter++) {
-    transform = [
-      inputArray[counter].charAt(0).toUpperCase(),
-      inputArray[counter].substr(1)
-    ].join('');
-    outputArray.push(transform);
-  }
-  console.log(outputArray);
-  return outputArray;
-}
+  SomeText.prototype.capifyWords = function(){
+    var result = [];
+    var textArray = this.text.split(' ');
+    for (var counter = 0; counter < textArray.length; counter++){
+      result.push(this.capify(textArray[counter]));
+    }
+    return result.join(' ');
+  };
 
-document.getElementById('main_button').onclick = getText;
+  document.getElementById('main_button').addEventListener('click', function(e){
+    var something = prompt('Give me a string to capitalize');
+    var newText = new SomeText(something);
+    alert(newText.capifyWords());
+  })
+}());
