@@ -85,7 +85,25 @@ possible issues:
 }());
 ```
 
-> ## Functional Style
+> ## Functional Style - 2014
 * use functions as first class objects
 * don't change external state
+* functions are self contained, and no abstract object is being passed around
+* functions take a value, process it and return it
+* this code is easier to unit test
+```javascript
+(function(){
+  function capify(str){
+    return [str.charAt(0).toUpperCase(), str.substr(1)].join('');
+  };
+  function processWords(fn, str){
+    return str.split(' ').map(fn).join(' ');
+  };
+  function getValue(e){
+    var something = prompt('Give me something to capitalize');
+    alert(processWords(capify, something));
+  };
 
+  document.getElementById('main_button').addEventListener('click', getValue);
+}());
+```
