@@ -1,14 +1,8 @@
-(function(){
-  function capify(str){
-    return [str.charAt(0).toUpperCase(), str.substr(1)].join('');
-  };
-  function processWords(fn, str){
-    return str.split(' ').map(fn).join(' ');
-  };
-  function getValue(e){
-    var something = prompt('Give me something to capitalize');
-    alert(processWords(capify, something));
-  };
+{
+  "user strict";
 
+  const capify = str => [str.charAt(0).toUpperCase(), str.substr(1)].join('');
+  const processWords = (fn, str) => str.split(' ').map(fn).join(' ');
+  const getValue = (e) => alert(processWords(capify, prompt('give me something to capitalize')))
   document.getElementById('main_button').addEventListener('click', getValue);
-}());
+}
