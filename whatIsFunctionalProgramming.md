@@ -1,4 +1,4 @@
-# Different way to write JS code to handle a button press
+# Different ways to write JS code to handle a button press
 ```html
 <!DOCTYPE html>
   <head>
@@ -41,6 +41,8 @@ function capWords(input) {
 
 document.getElementById('main_button').onclick = getText;
 ```
+
+
 > ## Object Oriented Way
 * data to be treated as objects
 * methods to manipulate those objects
@@ -82,3 +84,8 @@ possible issues:
   })
 }());
 ```
+
+> ## Functional Style
+* use functions as first class objects
+* don't change external state
+
