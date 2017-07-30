@@ -140,6 +140,9 @@ console.log(pure(4, external));   //7
 > ## Higher order functions
 * type of functions is Objects
 * they can be passed into functions and returned from functions.
+* reliable callbacks
+* better encapsulation of methods
+* create sets of related functions
 ```javascript
 Example 1
 const timer = setInterval(
