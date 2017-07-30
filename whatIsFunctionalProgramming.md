@@ -141,7 +141,7 @@ console.log(pure(4, external));   //7
 * type of functions is Objects
 * they can be passed into functions and returned from functions.
 ```javascript
-Example
+Example 1
 const timer = setInterval(
   () => console.log(new Date().toLocaleTimeString()),
   1000
@@ -153,4 +153,17 @@ setTimeout(() => clearInterval(timer), 3000)
 const logTime = () => console.log(new Date().toLocaleTimeString());
 const timer = setInterval(logTime, 1000);
 setTimeout(() => clearInterval(timer), 3000);
+```
+
+```javascript
+Example 2
+const firstFn = (original, replacement) => {
+  return function(source){
+    return source.replace(original, replacement);
+  };
+};
+
+const term = firstFn(/black/ig, 'white');
+
+console.log(term('The color is black'));
 ```

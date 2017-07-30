@@ -1,8 +1,9 @@
-{
-  "user strict";
+const firstFn = (original, replacement) => {
+  return function(source){
+    return source.replace(original, replacement);
+  };
+};
 
-  const capify = str => [str.charAt(0).toUpperCase(), str.substr(1)].join('');
-  const processWords = (fn, str) => str.split(' ').map(fn).join(' ');
-  const getValue = (e) => alert(processWords(capify, prompt('give me something to capitalize')))
-  document.getElementById('main_button').addEventListener('click', getValue);
-}
+const term = firstFn(/black/ig, 'white');
+
+console.log(term('The color is black'));
