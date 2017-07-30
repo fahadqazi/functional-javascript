@@ -148,7 +148,7 @@ const timer = setInterval(
 );
 setTimeout(() => clearInterval(timer), 3000)
 
----
+//------------------------------------------------------
 
 const logTime = () => console.log(new Date().toLocaleTimeString());
 const timer = setInterval(logTime, 1000);
@@ -165,5 +165,12 @@ const firstFn = (original, replacement) => {
 
 const term = firstFn(/black/ig, 'white');
 
+console.log(term('The color is black'));
+
+//------------------------------------------------------
+ES6 
+
+const firstFn = (original, replacement) => (source) => source.replace(original, replacement);
+const term = firstFn(/black/ig, 'white');
 console.log(term('The color is black'));
 ```
