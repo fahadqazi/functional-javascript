@@ -109,7 +109,9 @@ possible issues:
 ```
 
 > ## Functional programming - ES6
-
+* concise code
+* no mutable variables, no vars etc
+* implied returns values
 ```javascript
 {
   "user strict";
@@ -118,4 +120,31 @@ possible issues:
   const getValue = (e) => alert(processWords(capify, prompt('give me something to capitalize')))
   document.getElementById('main_button').addEventListener('click', getValue);
 }
+```
+
+> ## Pure functions
+* don't rely on state of the code where they are called form
+* don't create side effects
+* same result for the same arguments given to a pure function
+* easy to test
+```javascript
+const external = [1, 2, 3];
+const pure = (value, arr) => {
+  let result = value + arr.length;
+  return result;
+}
+console.log(pure(4, external));   //7
+console.log(pure(4, external));   //7
+```
+
+> ## Higher order functions
+* type of functions is Objects
+* they can be passed into functions and returned from functions.
+```javascript
+Example
+const timer = setInterval(
+  () => console.log(new Date().toLocaleTimeString()),
+  1000
+);
+setTimeout(() => clearInterval(timer), 3000)
 ```
