@@ -144,7 +144,7 @@ console.log(pure(4, external));   //7
 * better encapsulation of methods
 * create sets of related functions
 ```javascript
-Example 1
+//Example 1
 const timer = setInterval(
   () => console.log(new Date().toLocaleTimeString()),
   1000
@@ -159,7 +159,7 @@ setTimeout(() => clearInterval(timer), 3000);
 ```
 
 ```javascript
-Example 2
+//Example 2
 const firstFn = (original, replacement) => {
   return function(source){
     return source.replace(original, replacement);
@@ -171,7 +171,7 @@ const term = firstFn(/black/ig, 'white');
 console.log(term('The color is black'));
 
 //------------------------------------------------------
-ES6 
+//ES6 
 
 const firstFn = (original, replacement) => (source) => source.replace(original, replacement);
 const term = firstFn(/black/ig, 'white');
