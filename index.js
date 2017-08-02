@@ -1,9 +1,12 @@
-const factorial = value => {
-  if(value <= 0){
-    return 1;
+const factorialPTC = number => factorIt(number, 1);
+
+const factorIt = (number, acc) => {
+  if (number<=1){
+    return acc
   } else {
-    return value * factorial(value-1);
+    return factorIt(number - 1, number*acc);
   }
 }
 
-console.log(factorial(5))
+const result = factorialPTC(6)
+console.log(result);
