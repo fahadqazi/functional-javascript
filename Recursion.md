@@ -1,7 +1,9 @@
 # Recursion
 * calling function from within itself
 * alternative to looping
-
+* stateless
+* no side effects
+* checks for terminal condition first, allow a quick and clean exit
 ```javascript
 Factorial
 
@@ -37,3 +39,4 @@ const factorial = value => {
 console.log(factorial(5))
 
 ```
+
