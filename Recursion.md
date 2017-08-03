@@ -24,7 +24,6 @@ const countdown = value => {
 }
 
 console.log(recur(4));
-console.log(recur(0));
 console.log(recur(1));
 
 
