@@ -45,7 +45,12 @@ function greetCurried(greeting){
 
 const greetHello= greetCurried('hello');
 console.log(greetHello('Jon'));
-
 //type checked
 console.log(greetHello(5));
+
+
+//Now we can also make GreetHi
+
+const greetHi = greetCurried('Hi');
+console.log(greetHi('James'))
 ```
