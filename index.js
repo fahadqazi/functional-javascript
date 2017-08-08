@@ -1,25 +1,20 @@
-const factorialPTC = number => factorIt(number, 1);
-
-const factorIt = (number, acc) => {
-  if (number<=1){
-    return acc
-  } else {
-    return factorIt(number - 1, number*acc);
-  }
+function greet(greeting, name){
+  return (`${greeting} ${name}`)
 }
 
-console.log(factorialPTC(5));
+console.log(greet('hello', 'jon'));
+console.log(greet('hello', 'eddy'));
+console.log(greet('hello', 'brian'));
 
-//Another example - downward sum of numbers 
+// A greet function
+// this is how the code is normally written, but this is repetitive.
 
-const sumPTC = number => sum(number, 0);
-
-const sum = (number, acc) => {
-  if(number<1){
-    return acc
-  }else{
-    return sum(number - 1, number + acc)
-  }
+// Idea 1
+// May be we can hard code the repetitive bit i.e. 'hello'
+function greetHello(name){
+  return (`Hello, ${name}`);
 }
 
-console.log(sumPTC(5));
+console.log(greetHello('jon'));
+console.log(greetHello('eddy'));
+console.log(greetHello('brian'));
