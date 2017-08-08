@@ -24,6 +24,28 @@ console.log(greetHello('jon'));
 console.log(greetHello('eddy'));
 console.log(greetHello('brian'));
 // This has its limitations
+```
 
+### with currying we can use independent functions that
+* take simple args
+* are customizable 
+* all share same template code
+```javascript
+//Currying the greet function
+function greetCurried(greeting){
+  return function(name){
+    if (typeof(greeting) != 'string'){
+      return 'Greetings'
+    } else if (typeof(name) != 'string'){
+      return (greeting);
+    }
+    return (`${greeting} ${name}`)
+  }
+}
 
+const greetHello= greetCurried('hello');
+console.log(greetHello('Jon'));
+
+//type checked
+console.log(greetHello(5));
 ```

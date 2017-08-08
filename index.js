@@ -1,20 +1,16 @@
-function greet(greeting, name){
-  return (`${greeting} ${name}`)
+function greetCurried(greeting){
+  return function(name){
+    if (typeof(greeting) != 'string'){
+      return 'Greetings'
+    } else if (typeof(name) != 'string'){
+      return (greeting);
+    }
+    return (`${greeting} ${name}`)
+  }
 }
 
-console.log(greet('hello', 'jon'));
-console.log(greet('hello', 'eddy'));
-console.log(greet('hello', 'brian'));
+const greetHello= greetCurried('hello');
+console.log(greetHello('Jon'));
 
-// A greet function
-// this is how the code is normally written, but this is repetitive.
-
-// Idea 1
-// May be we can hard code the repetitive bit i.e. 'hello'
-function greetHello(name){
-  return (`Hello, ${name}`);
-}
-
-console.log(greetHello('jon'));
-console.log(greetHello('eddy'));
-console.log(greetHello('brian'));
+//type checked
+console.log(greetHello(5));
