@@ -1,7 +1,24 @@
 
-function greet(greeting, separator, emphasis, name){
-  return (greeting + separator + name + emphasis)
+function greetDeepCurry (greeting){
+  return function(separator){
+    return function(emphasis){
+      return function(name){
+        return (greeting + separator + name + emphasis);
+      }
+    }
+  }
 }
 
-const result = greet('hello', ', ', '!', 'jon')
-console.log(result);
+//ES6
+const greeter = greeting => separator => emphasis => name => {
+  return greeting + separator + name + emphasis;
+}
+
+var one = greeter('hello');
+console.log(one);
+var two = one(', ');
+console.log(two);
+var three = two('!');
+console.log(three);
+var four = three('jon');
+console.log(four);
