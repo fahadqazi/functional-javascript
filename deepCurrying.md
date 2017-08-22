@@ -47,3 +47,24 @@ console.log(greetAwkwardly('jon'));
 const sayHello = greeter('hello')(', ');
 console.log(sayHello('!')('Alan'))
 ```
+
+## Curring and partial application
+- currying always returns a function with arity of one(one parameter)
+- ES6 syntax allows you to add any number of args using spread
+
+### Partial Application
+- take a function taking a certain number of args, and return a partially applied function
+
+```javascript
+const partial = (variadic, ...args) => {
+  return (...subargs) => {
+    return variadic.apply(this, args.concat(subargs));
+  }
+}
+
+const adder = (a,b,c,d) => a+b+c+d;
+
+const firstArgs = partial(adder, 1, 2)
+const secondArgs = firstArgs(3,4);
+console.log(secondArgs);
+```

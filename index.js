@@ -1,9 +1,11 @@
-const greeter = greeting => separator => emphasis => name => {
-  return greeting + separator + name + emphasis;
+const partial = (variadic, ...args) => {
+  return (...subargs) => {
+    return variadic.apply(this, args.concat(subargs));
+  }
 }
 
-const greetAwkwardly = greeter('Hello')('...')('!');
-console.log(greetAwkwardly('jon'));
+const adder = (a,b,c,d) => a+b+c+d;
 
-const sayHello = greeter('hello')(', ');
-console.log(sayHello('!')('Alan'))
+const firstArgs = partial(adder, 1, 2)
+const secondArgs = firstArgs(3,4);
+console.log(secondArgs);
