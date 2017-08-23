@@ -1,11 +1,5 @@
-const partial = (variadic, ...args) => {
-  return (...subargs) => {
-    return variadic.apply(this, args.concat(subargs));
-  }
-}
+const addOne = x => x + 1;
+const timesTwo = x => x * 2;
 
-const adder = (a,b,c,d) => a+b+c+d;
-
-const firstArgs = partial(adder, 1, 2)
-const secondArgs = firstArgs(3,4);
-console.log(secondArgs);
+console.log(addOne(timesTwo(3)))
+console.log(timesTwo(addOne(3)))
