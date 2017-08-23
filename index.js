@@ -5,5 +5,7 @@ const compose = (f1, f2) => {
 }
 
 const addOne = x => x + 1;
-const timesTwo = x * 2;
+const timesTwo = x => x * 2;
 
+const result = compose(addOne, timesTwo)(4);
+console.log(result);

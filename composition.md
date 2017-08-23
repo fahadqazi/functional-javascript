@@ -40,3 +40,20 @@ console.log(addOneTimesTwo(3));
 ```
 
 ## Creating a compose utility
+- functions should be pure
+```javascript
+const compose = (f1, f2) => {
+  return value => {
+    return f1(f2(value));
+  }
+}
+//OR
+
+const compose = (f1,f2) => value => f1(f2(value));
+
+const addOne = x => x + 1;
+const timesTwo = x => x * 2;
+
+const result = compose(addOne, timesTwo)(4);
+console.log(result);
+```
